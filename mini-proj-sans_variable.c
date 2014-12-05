@@ -1,18 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>                                     // Pour EXIT_SUCCESS et EXIT_FAILURE
 #include <unistd.h>                                     // Pour les forks
-#include<sys/wait.h>
-
-int choix1(int *var1);
-int choix2(int *var2);
-int choix3(int *operateur);
+#include <sys/wait.h>
 
 int main()
 {
 	int a, b, c, d, e, f;		                        //declaration des valeurs
 	int x1, x2, x3, x4, x5, x6, x7, x8;                 //declaration des etapes
 	int T1, T2, T3, T4, T5, T6, T7, T8;                 //declaration des peres
-    int cpt1, cpt2, cpt3, cpt4, cpt5, cpt6, cpt7, cpt8; //declarations des comteurs
+    int cpt1, cpt2, cpt3, cpt4, cpt5, cpt6, cpt7;       //declarations des comteurs
     int op1, op2, op3, op4, op5, op6, op7, op8;         //declaration des operateurs
     int i, var1, var2, operateur;
 
@@ -27,12 +23,18 @@ int main()
 	system("clear");					                //nettoie la console
 
     printf("Declaration des variables:\n");             //demande des variables à l'utilisateur
-    scanf("a = %d", &a);
-    scanf("b = %d", &b);
-    scanf("c = %d", &c);
-    scanf("d = %d", &d);
-    scanf("e = %d", &e);
-    scanf("f = %d", &f);
+    printf("a = ");
+    scanf("%d", &a);
+    printf("b = ");
+    scanf("%d", &b);
+    printf("c = ");
+    scanf("%d", &c);
+    printf("d = ");
+    scanf("%d", &d);
+    printf("e = ");
+    scanf("%d", &e);
+    printf("f = ");
+    scanf("%d", &f);
 
     printf("\n\n");
 
@@ -40,6 +42,8 @@ int main()
 
     for (i=1; i<9; i++)
     {
+        operateur = 0;
+        
         printf("Pour x%d: \n", i);
 
         printf("Choix de la premiere variable.\n");
@@ -68,21 +72,19 @@ int main()
                 printf(" x1 = %d || x2 = %d || x3 = %d || x4 = %d || x5 = %d || x6 = %d || x7 = %d\n\n", x1, x2, x3, x4, x5, x6, x7);
                 break;
             default:
-                printf("Erreur\n");
+                printf("\n");
                 break;
         }
-        scanf("%d", var1);
-        switch(var1)
-        {
-            case x1: cpt1++;        break;
-            case x2: cpt2++;        break;
-            case x3: cpt3++;        break;
-            case x4: cpt4++;        break;
-            case x5: cpt5++;        break;
-            case x6: cpt6++;        break;
-            case x7: cpt7++;        break;
-            default: printf("\n");  break;
-        }
+        scanf("%d", &var1);
+
+        if      (var1 == x1) cpt1 ++;
+        else if (var1 == x2) cpt2 ++;
+        else if (var1 == x3) cpt3 ++;
+        else if (var1 == x4) cpt4 ++;
+        else if (var1 == x5) cpt5 ++;        
+        else if (var1 == x6) cpt6 ++;
+        else if (var1 == x7) cpt7 ++;       
+        else                 printf("\n");
 
         printf("\n\n");
 
@@ -112,21 +114,19 @@ int main()
                 printf(" x1 = %d || x2 = %d || x3 = %d || x4 = %d || x5 = %d || x6 = %d || x7 = %d\n\n", x1, x2, x3, x4, x5, x6, x7);
                 break;
             default:
-                printf("Erreur\n");
+                printf("\n");
                 break;
         }
-        scanf("%d", var2);
-        switch(var2)
-        {
-            case x1: cpt1++;        break;
-            case x2: cpt2++;        break;
-            case x3: cpt3++;        break;
-            case x4: cpt4++;        break;
-            case x5: cpt5++;        break;
-            case x6: cpt6++;        break;
-            case x7: cpt7++;        break;
-            default: printf("\n");  break;
-        }
+        scanf("%d", &var2);
+
+        if      (var2 == x1) cpt1 ++;
+        else if (var2 == x2) cpt2 ++;
+        else if (var2 == x3) cpt3 ++;
+        else if (var2 == x4) cpt4 ++;
+        else if (var2 == x5) cpt5 ++;        
+        else if (var2 == x6) cpt6 ++;
+        else if (var2 == x7) cpt7 ++;       
+        else                 printf("\n");
 
         printf("\n\n");
 
@@ -142,20 +142,131 @@ int main()
         switch(operateur)
         {
             case 1:
-                xi = var1 + var2;
+                switch (i)
+                {
+                    case 1:
+                        x1 = var1 + var2;
+                        break;
+                    case 2:
+                        x2 = var1 + var2;
+                        break;
+                    case 3:
+                        x3 = var1 + var2;
+                        break;
+                    case 4:
+                        x4 = var1 + var2;
+                        break;
+                    case 5:
+                        x5 = var1 + var2;
+                        break;
+                    case 6:
+                        x6 = var1 + var2;
+                        break;
+                    case 7:
+                        x7 = var1 + var2;
+                        break;
+                    case 8:
+                        x8 = var1 + var2;
+                        break;
+                    default:
+                        printf("Erreur\n");
+                        break;
+                }
                 break;
             case 2:
-                xi = var1 - var2;
+                switch (i)
+                {
+                    case 1:
+                        x1 = var1 - var2;
+                        break;
+                    case 2:
+                        x2 = var1 - var2;
+                        break;
+                    case 3:
+                        x3 = var1 - var2;
+                        break;
+                    case 4:
+                        x4 = var1 - var2;
+                        break;
+                    case 5:
+                        x5 = var1 - var2;
+                        break;
+                    case 6:
+                        x6 = var1 - var2;
+                        break;
+                    case 7:
+                        x7 = var1 - var2;
+                        break;
+                    case 8:
+                        x8 = var1 - var2;
+                        break;
+                    default:
+                        printf("Erreur\n");
+                        break;
+                }
                 break;
             case 3:
-                xi = var1 * var2;
+                switch (i)
+                {
+                    case 1:
+                        x1 = var1 * var2;
+                        break;
+                    case 2:
+                        x2 = var1 * var2;
+                        break;
+                    case 3:
+                        x3 = var1 * var2;
+                        break;
+                    case 4:
+                        x4 = var1 * var2;
+                        break;
+                    case 5:
+                        x5 = var1 * var2;
+                        break;
+                    case 6:
+                        x6 = var1 * var2;
+                        break;
+                    case 7:
+                        x7 = var1 * var2;
+                        break;
+                    case 8:
+                        x8 = var1 * var2;
+                        break;
+                    default:
+                        printf("Erreur\n");
+                        break;
+                }
                 break;
             case 4:
-                if(var2!=0)
-                    xi = var1 / var2;
-                else
+                switch (i)
                 {
-                    printf("Erreur\n");
+                    case 1:
+                        x1 = var1 / var2;
+                        break;
+                    case 2:
+                        x2 = var1 / var2;
+                        break;
+                    case 3:
+                        x3 = var1 / var2;
+                        break;
+                    case 4:
+                        x4 = var1 / var2;
+                        break;
+                    case 5:
+                        x5 = var1 / var2;
+                        break;
+                    case 6:
+                        x6 = var1 / var2;
+                        break;
+                    case 7:
+                        x7 = var1 / var2;
+                        break;
+                    case 8:
+                        x8 = var1 / var2;
+                        break;
+                    default:
+                        printf("Erreur\n");
+                        break;
                 }
                 break;
             default:
@@ -165,6 +276,8 @@ int main()
 
         printf("\n\n");
     }
+
+
 
 	pipe (tab_x1);						                //creation du tube pour recuperer la valeur x1
 	T1 = fork();						                //creation du premier fork
@@ -195,11 +308,8 @@ int main()
 		{
 			printf("Deuxieme processus:\n\n");
 
-            for(i=1; i<8; i++)
-            {
-                close(tab_xi[1]);			            //fermeture de l'écriture de tab_xi
-                read(tab_xi[0], &xi, sizeof(xi));	    //lecture de xi dans tab_xi
-            }
+            close(tab_x1[1]);			                //fermeture de l'écriture de tab_xi
+            read(tab_x1[0], &x1, sizeof(x1));	        //lecture de xi dans tab_xi
 
 			printf("x2 = %d\n", x2);
 
@@ -223,11 +333,10 @@ int main()
 		{
 			printf("Troisieme processus:\n\n");
 
-            for(i=1; i<8; i++)
-            {
-                close(tab_xi[1]);			            //fermeture de l'écriture de tab_xi
-                read(tab_xi[0], &xi, sizeof(xi));	    //lecture de xi dans tab_xi
-            }
+            close(tab_x1[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x1[0], &x1, sizeof(x1));           //lecture de xi dans tab_xi
+            close(tab_x2[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x2[0], &x2, sizeof(x2));           //lecture de xi dans tab_xi
 
 			printf("x3 = %d\n", x3);
 
@@ -251,11 +360,13 @@ int main()
 		{
 			printf("Quatrieme processus:\n\n");
 
-            for(i=1; i<8; i++)
-            {
-                close(tab_xi[1]);			            //fermeture de l'écriture de tab_xi
-                read(tab_xi[0], &xi, sizeof(xi));	    //lecture de xi dans tab_xi
-            }
+            close(tab_x1[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x1[0], &x1, sizeof(x1));           //lecture de xi dans tab_xi
+            close(tab_x2[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x2[0], &x2, sizeof(x2));           //lecture de xi dans tab_xi
+            close(tab_x3[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x3[0], &x3, sizeof(x3));           //lecture de xi dans tab_xi
+
 
 			printf("x4 = %d\n", x4);
 
@@ -279,11 +390,15 @@ int main()
 		{
 			printf("Cinquieme processus:\n\n");
 
-            for(i=1; i<8; i++)
-            {
-                close(tab_xi[1]);			           //fermeture de l'écriture de tab_xi
-                read(tab_xi[0], &xi, sizeof(xi));       //lecture de xi dans tab_xi
-            }
+            close(tab_x1[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x1[0], &x1, sizeof(x1));           //lecture de xi dans tab_xi
+            close(tab_x2[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x2[0], &x2, sizeof(x2));           //lecture de xi dans tab_xi
+            close(tab_x3[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x3[0], &x3, sizeof(x3));           //lecture de xi dans tab_xi
+            close(tab_x4[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x4[0], &x4, sizeof(x4));           //lecture de xi dans tab_xi
+
 
 			printf("x5 = %d\n", x5);
 
@@ -307,11 +422,17 @@ int main()
 		{
 			printf("Sixieme processus:\n\n");
 
-            for(i=1; i<8; i++)
-            {
-                close(tab_xi[1]);			            //fermeture de l'écriture de tab_xi
-                read(tab_xi[0], &xi, sizeof(xi));	     //lecture de xi dans tab_xi
-            }
+            close(tab_x1[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x1[0], &x1, sizeof(x1));           //lecture de xi dans tab_xi
+            close(tab_x2[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x2[0], &x2, sizeof(x2));           //lecture de xi dans tab_xi
+            close(tab_x3[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x3[0], &x3, sizeof(x3));           //lecture de xi dans tab_xi
+            close(tab_x4[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x4[0], &x4, sizeof(x4));           //lecture de xi dans tab_xi
+            close(tab_x5[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x5[0], &x5, sizeof(x5));           //lecture de xi dans tab_xi
+
 
 			printf("x6 = %d\n", x6);
 
@@ -335,11 +456,19 @@ int main()
 		{
 			printf("Septieme processus:\n\n");
 
-            for(i=1; i<8; i++)
-            {
-                close(tab_xi[1]);			            //fermeture de l'écriture de tab_xi
-                read(tab_xi[0], &xi, sizeof(xi));	    //lecture de xi dans tab_xi
-            }
+            close(tab_x1[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x1[0], &x1, sizeof(x1));           //lecture de xi dans tab_xi
+            close(tab_x2[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x2[0], &x2, sizeof(x2));           //lecture de xi dans tab_xi
+            close(tab_x3[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x3[0], &x3, sizeof(x3));           //lecture de xi dans tab_xi
+            close(tab_x4[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x4[0], &x4, sizeof(x4));           //lecture de xi dans tab_xi
+            close(tab_x5[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x5[0], &x5, sizeof(x5));           //lecture de xi dans tab_xi
+            close(tab_x6[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x6[0], &x6, sizeof(x6));           //lecture de xi dans tab_xi
+
 
 			printf("x7 = %d\n", x7);
 
@@ -362,11 +491,21 @@ int main()
 		{
 			printf("Huitieme processus:\n\n");
 
-            for(i=1; i<8; i++)
-            {
-                close(tab_xi[1]);			            //fermeture de l'écriture de tab_xi
-                read(tab_xi[0], &xi, sizeof(xi));	    //lecture de xi dans tab_xi
-            }
+            close(tab_x1[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x1[0], &x1, sizeof(x1));           //lecture de xi dans tab_xi
+            close(tab_x2[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x2[0], &x2, sizeof(x2));           //lecture de xi dans tab_xi
+            close(tab_x3[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x3[0], &x3, sizeof(x3));           //lecture de xi dans tab_xi
+            close(tab_x4[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x4[0], &x4, sizeof(x4));           //lecture de xi dans tab_xi
+            close(tab_x5[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x5[0], &x5, sizeof(x5));           //lecture de xi dans tab_xi
+            close(tab_x6[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x6[0], &x6, sizeof(x6));           //lecture de xi dans tab_xi
+            close(tab_x7[1]);                           //fermeture de l'écriture de tab_xi
+            read(tab_x7[0], &x7, sizeof(x7));           //lecture de xi dans tab_xi
+
 
 			printf("x8 = %d\n", x8);
 			exit(EXIT_SUCCESS);			                //quitte avec succes
