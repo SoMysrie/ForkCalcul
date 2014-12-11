@@ -43,7 +43,7 @@ int main()
     for (i=1; i<9; i++)
     {
         operateur = 0;
-        
+
         printf("Pour x%d: \n", i);
 
         printf("Choix de la premiere variable.\n");
@@ -81,9 +81,9 @@ int main()
         else if (var1 == x2) cpt2 ++;
         else if (var1 == x3) cpt3 ++;
         else if (var1 == x4) cpt4 ++;
-        else if (var1 == x5) cpt5 ++;        
+        else if (var1 == x5) cpt5 ++;
         else if (var1 == x6) cpt6 ++;
-        else if (var1 == x7) cpt7 ++;       
+        else if (var1 == x7) cpt7 ++;
         else                 printf("\n");
 
         printf("\n\n");
@@ -123,9 +123,9 @@ int main()
         else if (var2 == x2) cpt2 ++;
         else if (var2 == x3) cpt3 ++;
         else if (var2 == x4) cpt4 ++;
-        else if (var2 == x5) cpt5 ++;        
+        else if (var2 == x5) cpt5 ++;
         else if (var2 == x6) cpt6 ++;
-        else if (var2 == x7) cpt7 ++;       
+        else if (var2 == x7) cpt7 ++;
         else                 printf("\n");
 
         printf("\n\n");
