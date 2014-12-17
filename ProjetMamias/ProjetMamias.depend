@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1418617283 source:/root/Desktop/ProjetMamias/main.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<sys/wait.h>
+	<time.h>
+
